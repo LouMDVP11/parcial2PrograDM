@@ -42,7 +42,12 @@ class _MyHomePageState extends State<MyHomePage>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('TAREAS'),
+        title: Row(
+          children: [
+            Icon(Icons.task),
+            Text('TAREAS'),
+          ],
+        ),
       ),
       body: StreamBuilder<List<Map<String, dynamic>>>(
         stream: _tareasStream, 
@@ -52,11 +57,12 @@ class _MyHomePageState extends State<MyHomePage>
           }
           final tareas = snapshot.data!;
           print(tareas);
-          return ListView.builder(
+          return ListView.separated(
             itemCount: tareas.length,
             itemBuilder: (context, index){
               return Container(
                 height: 150,
+                padding: EdgeInsets.all(16.0),
                 child:Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -147,6 +153,7 @@ class _MyHomePageState extends State<MyHomePage>
                 ),
               );
             },
+            separatorBuilder: (BuildContext context, int index) => const Divider(),
           );
         },
       ),
