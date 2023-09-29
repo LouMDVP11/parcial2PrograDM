@@ -62,7 +62,7 @@ class _MyHomePageState extends State<MyHomePage>
             itemBuilder: (context, index){
               return Container(
                 height: 150,
-                padding: EdgeInsets.all(16.0),
+                padding: EdgeInsets.all(50.0),
                 child:Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
